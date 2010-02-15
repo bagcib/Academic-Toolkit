@@ -1,0 +1,41 @@
+We're creating an RCOS android development group that will develop
+several applications for google's gnu/linux based mobile platform.
+We've chosen android because it closely aligns itself with the open
+source community and is relatively new allowing better market
+penetration for our applications.
+
+Currently we have three ideas:
+1. An 'Academic Toolkit' that will provide the following...
+-Grade tracking for multiple classes.
+-Computes average based on guidelines set by professors.
+-Updates average when new grades are added.
+-Provides user with graphs showing averages for different
+assignment types, as well as current average throughout the semester.
+-Ability to compute GPA for current semester.
+-Alert students when their average falls below a predetermined
+amount.
+-Computes grade needed on certain assignments for user to maintain
+their current letter grade, or improve it.
+2. A college text book selling/buying application that eliminates the
+middleman. (This application will likely be mobile web)
+3. A college car pool application to help students find rides within
+their university. (This applicaiton will likely be mobile web)
+
+We're going to start with the Academic Toolkit application because
+it's lack of network features will make it easier for us to learn the
+characteristics of android and get an application to market.
+
+Right now we're just writing the logic/math handling for the application,
+once completed we'll conform it to android and work on the interface.
+
+We're modifying a class from a previous RCOS project, but not the gui from that
+project because it doesn't suit our needs.
+
+Links: 
+Dashboard: http://dashboard.rcos.cs.rpi.edu/
+
+Google Groups: http://groups.google.com/group/rcos-sp2010/
+
+Blog: http://rpiandroiddev.blogspot.com
+
+Code: http://github.com/alberz/Academic-Toolkit 
