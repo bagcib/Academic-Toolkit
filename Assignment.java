@@ -6,12 +6,12 @@ public class Assignment
 {
     String type;
     int numOfAssignment;
-    double pctweight;
+    double pctWeight;
 
-    public Assignment(String type, int numOfAssignment, double pctweight)
+    public Assignment(String type, int numOfAssignment, double pctWeight)
     {
 	this.type = type;
 	this.numOfAssignment = numOfAssignment;
-	this.pctweight = pctweight;
+	this.pctWeight = pctWeight;
     }
 }
