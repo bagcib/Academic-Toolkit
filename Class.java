@@ -1,8 +1,8 @@
 import java.util.*;
 import java.lang.*;
-public class Class
+public class Course
 {
-    private String className;
+    private String courseName;
     private String semester;
     
     private int numHomework;
@@ -24,7 +24,7 @@ public class Class
     
     private boolean finalExam;
     private double pctFinalExam;
-    public Class()
+    public Course()
     {
 	homework = false;
 	tests = false;
@@ -33,10 +33,10 @@ public class Class
 	finalExam = false;
 	
     }
-    public Class(String className, String semester)
+    public Course(String className, String semester)
     {
 	this.semester = semester;
-	this.className = className;
+	this.courseName = courseName;
 	homework = false;
 	tests = false;
 	quizzes = false;
