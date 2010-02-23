@@ -14,7 +14,7 @@ public class Grader
     {
 	Grader gradeAvg = new Grader();
 	course1.initializeCourse();
-	course1.addHomework();
-	course1.printCourse();
+	// course1.addHomework();
+	// course1.printCourse();
     }
 }
