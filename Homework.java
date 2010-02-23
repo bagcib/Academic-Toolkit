@@ -1,3 +1,6 @@
+/*
+ * Author: Matthew Gerrior
+ */
 import java.util.ArrayList;
 
 public class Homework extends Assignment

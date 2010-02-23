@@ -1,3 +1,6 @@
+/*
+ * Author: Matthew Gerrior
+ */
 public class Grader
 {
     static Course course1 = new Course();

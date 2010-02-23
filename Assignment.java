@@ -1,3 +1,7 @@
+/*
+ * Author: Matthew Gerrior
+ */
+
 public class Assignment
 {
     String type;

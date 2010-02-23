@@ -1,3 +1,6 @@
+/*
+ * Author: Matthew Gerrior
+ */
 public class Course
 {
     boolean hasHomework;
