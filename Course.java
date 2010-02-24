@@ -29,6 +29,22 @@ public class Course
 	boolean dropped = false;
 	assignments.add(new Assignment(type, pctWeight, grade, dropped));
     }
+    
+    public void dropLowest(String type)
+    {
+	int index = 0;
+	double lowestGrade = 100;
+
+	for(int i = 0; i < assignments.size(); i++)
+	    {
+		if(assignments.get(i).grade < lowestGrade && assignments.get(i).type.equals(type))
+		    {
+			lowestGrade = assignments.get(i).grade;
+			index = i;
+		    }
+	    }
+	assignments.get(index).dropped = true;
+    }
 
     public void printGrade()
     {
