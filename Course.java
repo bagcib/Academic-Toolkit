@@ -28,6 +28,7 @@ public class Course
 	double grade = 90;
 	boolean dropped = false;
 	assignments.add(new Assignment(type, pctWeight, grade, dropped));
+	assignments.add(new Assignment(type, pctWeight, 80, dropped));
     }
     
     public void dropLowest(String type)
@@ -45,6 +46,24 @@ public class Course
 	    }
 	assignments.get(index).dropped = true;
     }
+
+    public double getAverage(String type)
+    {
+	int sum = 0;
+	int numOfGrades = 0;
+	double average = 0.00;
+	for (int i = 0; i < assignments.size(); i++)
+	    {
+		if(assignments.get(i).type.equals(type) && assignments.get(i).dropped != true)
+		    {
+			sum += assignments.get(i).grade;
+			numOfGrades++;
+		    }
+	    }
+	average = sum / numOfGrades;
+	return average;
+    }
+	
 
     public void printGrade()
     {

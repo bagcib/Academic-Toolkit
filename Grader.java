@@ -21,5 +21,7 @@ public class Grader
 	courses.add(new Course("Java Programming", "SP10"));
 	courses.get(0).addAssignment();
 	courses.get(0).printGrade();
+	System.out.println("Average is: ");
+	System.out.println(courses.get(0).getAverage("homework"));
     }
 }
