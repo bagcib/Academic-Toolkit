@@ -1,9 +1,11 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Course
 {
     String className;
     String semester;
+    double average;
     ArrayList<Assignment> assignments; // = new ArrayList<Assignment>();
     ArrayList<String> assignmentTypes; // = new ArrayList<String>();
 
@@ -11,24 +13,43 @@ public class Course
     {
 	className = " ";
 	semester = " ";
+	average = 0.00;
     }
 
     public Course(String className, String semester)
     {
 	this.className = className;
 	this.semester = semester;
+	this.average = 0.00;
 	assignments = new ArrayList<Assignment>();
 	assignmentTypes = new ArrayList<String>();
     }
 
     public void addAssignment()
     {
-	String type = "homework";
-	double pctWeight = 3.50;
-	double grade = 90;
-	boolean dropped = false;
-	assignments.add(new Assignment(type, pctWeight, grade, dropped));
-	assignments.add(new Assignment(type, pctWeight, 80, dropped));
+	String type;
+	double pctWeight;
+	double grade;
+	Scanner sc = new Scanner(System.in);
+
+	// Ask for the assignment type
+	/* 
+	 * Best implemented as a drop-down menu
+	 * with the assignment types that have been
+	 * entered before?
+	 */
+	System.out.println("Please enter the type of assignment: ");
+	type = sc.next();
+
+	// Ask for the percent weight
+	System.out.println("Please enter the percentage weight: ");
+	pctWeight = sc.nextDouble();
+
+	// Ask for the grade received
+	System.out.println("Please enter the grade you received: ");
+	grade = sc.nextDouble();
+
+	assignments.add(new Assignment(type, pctWeight, grade, false));
     }
     
     public void dropLowest(String type)
@@ -60,10 +81,10 @@ public class Course
 			numOfGrades++;
 		    }
 	    }
-	average = sum / numOfGrades;
+	if(numOfGrades > 0)
+	    average = sum / numOfGrades;
 	return average;
     }
-	
 
     public void printGrade()
     {
