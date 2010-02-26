@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.Map;
+import java.util.HashMap;
 
 public class Course
 {
@@ -7,7 +9,7 @@ public class Course
     String semester;
     double average;
     ArrayList<Assignment> assignments; // = new ArrayList<Assignment>();
-    ArrayList<String> assignmentTypes; // = new ArrayList<String>();
+    Map<String, Double> assignmentTypes; // = new ArrayList<String>();
 
     public Course()
     {
@@ -22,7 +24,7 @@ public class Course
 	this.semester = semester;
 	this.average = 0.00;
 	assignments = new ArrayList<Assignment>();
-	assignmentTypes = new ArrayList<String>();
+	assignmentTypes = new HashMap<String, Double>();
     }
 
     public void addAssignment()
@@ -42,8 +44,15 @@ public class Course
 	type = sc.next();
 
 	// Ask for the percent weight
-	System.out.println("Please enter the percentage weight: ");
-	pctWeight = sc.nextDouble();
+	// pctWeight = assignmentTypes.get(type);
+	if (assignmentTypes.get(type) == null)
+	    {
+		System.out.println("Please enter the percentage weight: ");
+		pctWeight = sc.nextDouble();
+		assignmentTypes.put(type, pctWeight);
+	    }
+	else
+	    pctWeight = assignmentTypes.get(type);
 
 	// Ask for the grade received
 	System.out.println("Please enter the grade you received: ");
