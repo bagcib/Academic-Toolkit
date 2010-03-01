@@ -27,6 +27,29 @@ public class Course
 	assignmentTypes = new HashMap<String, Double>();
     }
 
+    public void printGrades()
+    {
+	for (int i = 0; i < assignments.size(); i++)
+	    {
+		System.out.println(assignments.get(i));
+	    }
+    }
+
+    public void editGrade()
+    {
+	int index;
+	Assignment temp;
+	Scanner sc = new Scanner(System.in);
+	printGrades();
+	System.out.println("Please enter the number of the assignment you wish to modify: ");
+	index = sc.nextInt();
+	temp = assignments.get(index);
+	System.out.println("Please enter your new grade: ");	
+	temp.grade = sc.nextDouble();
+	assignments.set(index, temp);
+	printGrades();
+    }
+
     public void addAssignment()
     {
 	String type;

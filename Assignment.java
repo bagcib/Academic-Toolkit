@@ -25,6 +25,11 @@ public class Assignment
 	System.out.println("This assignment was added on: " + dateAdded);
     }
 
+    public String toString()
+    {
+        return(type + '\t' + pctWeight + '\t' + grade + '\t' + dateAdded);
+    }
+
     public void changeGrade(double newGrade)
     {
 	grade = newGrade;

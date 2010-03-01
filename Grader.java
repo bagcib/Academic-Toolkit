@@ -23,5 +23,9 @@ public class Grader
 	System.out.println("Average is: ");
 	System.out.println(courses.get(0).getAverage("homework"));
 	courses.get(0).addAssignment();
+	courses.get(0).addAssignment();
+	courses.get(0).addAssignment();
+	courses.get(0).editGrade();
+	courses.get(0).getAverage("homework");
     }
 }
