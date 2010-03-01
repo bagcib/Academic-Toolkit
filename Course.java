@@ -13,9 +13,23 @@ public class Course
 
     public Course()
     {
-	className = " ";
-	semester = " ";
+	// Initialize the variables
+	String className;
+	String semester;
+	Scanner sc = new Scanner(System.in);
+
+	// Ask the user for information about the course
+	System.out.println("Please enter the name of the course: ");
+	className = sc.next();
+	System.out.println("Please enter the semester: ");
+	semester = sc.next();
+	
+	// Set the course information
+	this.className = className;
+	this.semester = semester;
 	average = 0.00;
+	assignments = new ArrayList<Assignment>();
+	assignmentTypes = new HashMap<String, Double>();
     }
 
     public Course(String className, String semester)
@@ -32,6 +46,15 @@ public class Course
 	for (int i = 0; i < assignments.size(); i++)
 	    {
 		System.out.println(assignments.get(i));
+	    }
+    }
+
+    public void printGrades(String type)
+    {
+	for (int i = 0; i < assignments.size(); i++)
+	    {
+		if (assignments.get(i).type.equals(type))
+		    System.out.println(assignments.get(i));
 	    }
     }
 
@@ -58,16 +81,10 @@ public class Course
 	Scanner sc = new Scanner(System.in);
 
 	// Ask for the assignment type
-	/* 
-	 * Best implemented as a drop-down menu
-	 * with the assignment types that have been
-	 * entered before?
-	 */
 	System.out.println("Please enter the type of assignment: ");
 	type = sc.next();
 
 	// Ask for the percent weight
-	// pctWeight = assignmentTypes.get(type);
 	if (assignmentTypes.get(type) == null)
 	    {
 		System.out.println("Please enter the percentage weight: ");
@@ -82,6 +99,7 @@ public class Course
 	grade = sc.nextDouble();
 
 	assignments.add(new Assignment(type, pctWeight, grade, false));
+	calcAverage();
     }
     
     public void dropLowest(String type)
@@ -98,6 +116,23 @@ public class Course
 		    }
 	    }
 	assignments.get(index).dropped = true;
+    }
+    
+    public void calcAverage()
+    {
+	int sum = 0;
+	int numOfGrades = 0;
+	double average = 0.00;
+	for (int i = 0; i < assignments.size(); i++)
+	    {
+		if(assignments.get(i).dropped != true)
+		    {
+			sum += assignments.get(i).grade;
+			numOfGrades++;
+		    }
+	    }
+	average = sum / numOfGrades;
+	this.average = average;
     }
 
     public double getAverage(String type)
@@ -118,8 +153,8 @@ public class Course
 	return average;
     }
 
-    public void printGrade()
+    public String toString()
     {
-	System.out.println(assignments.get(0).grade);
+	return(className + '\t' + average);
     }
 }
