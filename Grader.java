@@ -1,23 +1,32 @@
 import java.util.ArrayList;
+<<<<<<< HEAD:Grader.java
 import java.util.Scanner;
 
 /**
  * This is the grade tracker in which users
  * will store their courses.
  */
+=======
+
+>>>>>>> 6bb1f91f13cdd69c56e277ea385ebb3762f90437:Grader.java
 public class Grader
 {
     double gpa;
     static ArrayList<Course> courses = new ArrayList<Course>();
+<<<<<<< HEAD:Grader.java
     
     /**
      * This is the default constructor for the grader,
      * which initializes the user's GPA to 0.
      */
+=======
+
+>>>>>>> 6bb1f91f13cdd69c56e277ea385ebb3762f90437:Grader.java
     public Grader()
     {
 	gpa = 0.00;
     }
+<<<<<<< HEAD:Grader.java
    
     /**
      * This is a function that allows the user to drop a given course
@@ -60,11 +69,15 @@ public class Grader
      * @param semester The semester in which the course is being taken.
      * @see Course
      */
+=======
+
+>>>>>>> 6bb1f91f13cdd69c56e277ea385ebb3762f90437:Grader.java
     public void addCourse(String courseName, String semester)
     {
 	courses.add(new Course(courseName, semester));
     }
 
+<<<<<<< HEAD:Grader.java
     /**
      * This is the main function that creates a new grade tracker
      * and greets the user.
@@ -73,5 +86,15 @@ public class Grader
     {
 	Grader userGrades = new Grader();
 	System.out.println("Welcome to the academic tool kit.");
+=======
+    public static void main(String [] args)
+    {
+	Grader userGrades = new Grader();
+	courses.add(new Course("Java Programming", "SP10"));
+	courses.get(0).addAssignment();
+	System.out.println("Average is: ");
+	System.out.println(courses.get(0).getAverage("homework"));
+	courses.get(0).addAssignment();
+>>>>>>> 6bb1f91f13cdd69c56e277ea385ebb3762f90437:Grader.java
     }
 }

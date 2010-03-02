@@ -1,4 +1,5 @@
 import java.util.Date;
+<<<<<<< HEAD:Assignment.java
 
 /**
  * This is the assignment class that will be used by the grader to store
@@ -11,6 +12,8 @@ import java.util.Date;
  * @see Course
  * @see Grader
  */
+=======
+>>>>>>> 6bb1f91f13cdd69c56e277ea385ebb3762f90437:Assignment.java
 public class Assignment
 {
     String type;
@@ -19,12 +22,15 @@ public class Assignment
     boolean dropped;
     Date dateAdded;
 
+<<<<<<< HEAD:Assignment.java
     /**
      * This is the default constructor for the assignment class.
      * It sets the type of assignment to be blank, the weight of
      * the assignment to be 0, the grade received on the assignment
      * to be 0, and whether or not the grade is dropped is set to false.
      */
+=======
+>>>>>>> 6bb1f91f13cdd69c56e277ea385ebb3762f90437:Assignment.java
     public Assignment()
     {
 	type = " ";
@@ -33,6 +39,7 @@ public class Assignment
 	dropped = false;
     }
 
+<<<<<<< HEAD:Assignment.java
     /**
      * This is the constructor for the assignment class. It will store all
      * required fields for an assignment object, and also tells the user
@@ -46,6 +53,8 @@ public class Assignment
      * @param dropped This tells the grader whether or not to include the given
      * assignment in any grade calculations, and should be false by default.
      */
+=======
+>>>>>>> 6bb1f91f13cdd69c56e277ea385ebb3762f90437:Assignment.java
     public Assignment(String type, double pctWeight, double grade, boolean dropped)
     {
 	this.type = type;
@@ -56,6 +65,7 @@ public class Assignment
 	System.out.println("This assignment was added on: " + dateAdded);
     }
 
+<<<<<<< HEAD:Assignment.java
     /**
      * This function overrides the default Object.toString() method, so that
      * asignments can be more easily printed, with important data included,
@@ -73,6 +83,8 @@ public class Assignment
      * @param newGrade This is the new grade that the user has
      * on the assignment, and will be used to replace the old grade.
      */
+=======
+>>>>>>> 6bb1f91f13cdd69c56e277ea385ebb3762f90437:Assignment.java
     public void changeGrade(double newGrade)
     {
 	grade = newGrade;

@@ -3,6 +3,7 @@ import java.util.Scanner;
 import java.util.Map;
 import java.util.HashMap;
 
+<<<<<<< HEAD:Course.java
 /**
  * This is the course class, that will be used by the grader
  * to store important information about a course, such as
@@ -10,6 +11,8 @@ import java.util.HashMap;
  * average for the course.
  * @author RPI Android Dev
  */
+=======
+>>>>>>> 6bb1f91f13cdd69c56e277ea385ebb3762f90437:Course.java
 public class Course
 {
     String className;
@@ -18,6 +21,7 @@ public class Course
     ArrayList<Assignment> assignments; // = new ArrayList<Assignment>();
     Map<String, Double> assignmentTypes; // = new ArrayList<String>();
 
+<<<<<<< HEAD:Course.java
     /**
      * This is the default constructor for the course. It asks the user
      * for important information about the course, such as the name of the
@@ -57,6 +61,15 @@ public class Course
      * @param semester This is the semester in which the course
      * is being taken.
      */
+=======
+    public Course()
+    {
+	className = " ";
+	semester = " ";
+	average = 0.00;
+    }
+
+>>>>>>> 6bb1f91f13cdd69c56e277ea385ebb3762f90437:Course.java
     public Course(String className, String semester)
     {
 	this.className = className;
@@ -66,6 +79,7 @@ public class Course
 	assignmentTypes = new HashMap<String, Double>();
     }
 
+<<<<<<< HEAD:Course.java
     /**
      * This is a function to list all of the grades in the current course,
      * starting from the oldest grade first, all the way up to the latest
@@ -134,6 +148,8 @@ public class Course
      * course. It then updates the current average for the course.
      * @see Assingnment
      */
+=======
+>>>>>>> 6bb1f91f13cdd69c56e277ea385ebb3762f90437:Course.java
     public void addAssignment()
     {
 	String type;
@@ -142,10 +158,22 @@ public class Course
 	Scanner sc = new Scanner(System.in);
 
 	// Ask for the assignment type
+<<<<<<< HEAD:Course.java
+=======
+	/* 
+	 * Best implemented as a drop-down menu
+	 * with the assignment types that have been
+	 * entered before?
+	 */
+>>>>>>> 6bb1f91f13cdd69c56e277ea385ebb3762f90437:Course.java
 	System.out.println("Please enter the type of assignment: ");
 	type = sc.next();
 
 	// Ask for the percent weight
+<<<<<<< HEAD:Course.java
+=======
+	// pctWeight = assignmentTypes.get(type);
+>>>>>>> 6bb1f91f13cdd69c56e277ea385ebb3762f90437:Course.java
 	if (assignmentTypes.get(type) == null)
 	    {
 		System.out.println("Please enter the percentage weight: ");
@@ -160,6 +188,7 @@ public class Course
 	grade = sc.nextDouble();
 
 	assignments.add(new Assignment(type, pctWeight, grade, false));
+<<<<<<< HEAD:Course.java
 	calcAverage();
     }
     
@@ -174,6 +203,10 @@ public class Course
      * @param type This is the assignment type that will have the lowest
      * grade dropped by this function.
      */
+=======
+    }
+    
+>>>>>>> 6bb1f91f13cdd69c56e277ea385ebb3762f90437:Course.java
     public void dropLowest(String type)
     {
 	int index = 0;
@@ -189,6 +222,7 @@ public class Course
 	    }
 	assignments.get(index).dropped = true;
     }
+<<<<<<< HEAD:Course.java
    
     /**
      * This function calculates the current average in the course
@@ -225,6 +259,9 @@ public class Course
      * will be calculated for.
      * @return The average for the given assignment type.
      */
+=======
+
+>>>>>>> 6bb1f91f13cdd69c56e277ea385ebb3762f90437:Course.java
     public double getAverage(String type)
     {
 	int sum = 0;
@@ -243,6 +280,7 @@ public class Course
 	return average;
     }
 
+<<<<<<< HEAD:Course.java
     /**
      * This is a function to override the default Object.toString() for
      * the course class. This function returns the name of the course,
@@ -255,5 +293,10 @@ public class Course
     public String toString()
     {
 	return(className + '\t' + semester + '\t' + average);
+=======
+    public void printGrade()
+    {
+	System.out.println(assignments.get(0).grade);
+>>>>>>> 6bb1f91f13cdd69c56e277ea385ebb3762f90437:Course.java
     }
 }
