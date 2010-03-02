@@ -3,6 +3,13 @@ import java.util.Scanner;
 import java.util.Map;
 import java.util.HashMap;
 
+/**
+ * This is the course class, that will be used by the grader
+ * to store important information about a course, such as
+ * the assignments in the course, as well as the current
+ * average for the course.
+ * @author RPI Android Dev
+ */
 public class Course
 {
     String className;
@@ -11,6 +18,12 @@ public class Course
     ArrayList<Assignment> assignments; // = new ArrayList<Assignment>();
     Map<String, Double> assignmentTypes; // = new ArrayList<String>();
 
+    /**
+     * This is the default constructor for the course. It asks the user
+     * for important information about the course, such as the name of the
+     * course, and the semester in which it is being taken, then initializes
+     * the assignments list, and assignments map.
+     */
     public Course()
     {
 	// Initialize the variables
@@ -32,6 +45,18 @@ public class Course
 	assignmentTypes = new HashMap<String, Double>();
     }
 
+    /**
+     * This is one of the constructors available for the Course class.
+     * It initializes the class name, and the semester in which the class is
+     * being taken, as well as initializing the average for the course to 0.
+     * It also initializes the ArrayList of assignments for the course, as well
+     * as the map that contains all the assignments and the weight for
+     * a given assignment type.
+     * @param className This is the name of the class that is being
+     * initialized.
+     * @param semester This is the semester in which the course
+     * is being taken.
+     */
     public Course(String className, String semester)
     {
 	this.className = className;
@@ -41,6 +66,13 @@ public class Course
 	assignmentTypes = new HashMap<String, Double>();
     }
 
+    /**
+     * This is a function to list all of the grades in the current course,
+     * starting from the oldest grade first, all the way up to the latest
+     * grade to be added, including all assignment types. This function
+     * uses the toString() method to print the assignments and their
+     * information.
+     */
     public void printGrades()
     {
 	for (int i = 0; i < assignments.size(); i++)
@@ -49,6 +81,16 @@ public class Course
 	    }
     }
 
+    /**
+     * This is a more specific function ot list every grade in the class,
+     * given a certain assignment types. Like the default printGrades()
+     * methods, this function starts at the oldest grade added, and prints
+     * all grades of the given assignment type up until the most recently
+     * added grade.
+     * @param type This is the assignment type that will be printed by the
+     * function, so that only the grades for the given assignment type will
+     * be printed.
+     */
     public void printGrades(String type)
     {
 	for (int i = 0; i < assignments.size(); i++)
@@ -58,6 +100,17 @@ public class Course
 	    }
     }
 
+    /**
+     * This function allows users to edit grades that have been
+     * previously stored in a class to reflect new information about
+     * the grade. It asks the user to choose which assignment they wish
+     * to modify, as well as the new grade that they received on the
+     * assignment. The assignment is then updated to reflect this new
+     * grade. In the future this function should have abilities to update
+     * other information, such as the weight of the assignment. Also,
+     * the function does not easily label the assignments for the user
+     * to chose a grade to edit.
+     */
     public void editGrade()
     {
 	int index;
@@ -73,6 +126,14 @@ public class Course
 	printGrades();
     }
 
+    /**
+     * This function is used to add a new assignment to the current
+     * course. It gets the assignment type from the user, and searches
+     * the assignments Map to check for the weight of the assignment.
+     * It then gets the grade received and adds the assignment to the
+     * course. It then updates the current average for the course.
+     * @see Assingnment
+     */
     public void addAssignment()
     {
 	String type;
@@ -102,6 +163,17 @@ public class Course
 	calcAverage();
     }
     
+    /**
+     * This function can be used to drop the lowest grade of a given
+     * assignment type. This function cycles through all of the assignments
+     * for a given course, and checks if they match the given assignment
+     * type. If they do, the function checks to see if this assignment has the lowest
+     * grade for the given assignment type. At the end of the function the assignment
+     * with the lowest grade for the given assignment type will have it's dropped field
+     * set to true.
+     * @param type This is the assignment type that will have the lowest
+     * grade dropped by this function.
+     */
     public void dropLowest(String type)
     {
 	int index = 0;
@@ -117,7 +189,15 @@ public class Course
 	    }
 	assignments.get(index).dropped = true;
     }
-    
+   
+    /**
+     * This function calculates the current average in the course
+     * for all assignments currently added to the class. It will
+     * iterate through every assignment in the course, taking the
+     * average of all assignments, and storing them in the average
+     * field of the class.
+     * @see getAverage
+     */
     public void calcAverage()
     {
 	int sum = 0;
@@ -135,6 +215,16 @@ public class Course
 	this.average = average;
     }
 
+    /**
+     * This function calculates the current average for a given
+     * assignment type. Given an assignment type, it will cycle through
+     * all of the assignments in the current course, looking for ones
+     * that match the given assignment type. Assignments that match
+     * the given type will be averaged.
+     * @param type This is the assignment type of which the average
+     * will be calculated for.
+     * @return The average for the given assignment type.
+     */
     public double getAverage(String type)
     {
 	int sum = 0;
@@ -153,8 +243,17 @@ public class Course
 	return average;
     }
 
+    /**
+     * This is a function to override the default Object.toString() for
+     * the course class. This function returns the name of the course,
+     * the semester that the course is being taken in, and the current
+     * average for the course.
+     * @return A string containing the name of the class, the semester
+     * in which the class is being taken, and the average, seperated by
+     * tabs.
+     */
     public String toString()
     {
-	return(className + '\t' + average);
+	return(className + '\t' + semester + '\t' + average);
     }
 }
