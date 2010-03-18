@@ -9,6 +9,7 @@ import java.util.HashMap;
  * the assignments in the course, as well as the current
  * average for the course.
  * @author RPI Android Dev
+ * File should now compile as of 3/18/2010
  */
 public class Course
 {
@@ -57,12 +58,14 @@ public class Course
      * @param semester This is the semester in which the course
      * is being taken.
      */
-    public Course()
+
+//Cannot have two separate constructors with same inputs:
+    /*public Course()
     {
 	className = " ";
 	semester = " ";
 	average = 0.00;
-    }
+    }*/
 
     public Course(String className, String semester)
     {
@@ -187,7 +190,9 @@ public class Course
      * @param type This is the assignment type that will have the lowest
      * grade dropped by this function.
      */
-    }
+    
+    // This is an unmatched curly brace
+    //}
     
     public void dropLowest(String type)
     {
